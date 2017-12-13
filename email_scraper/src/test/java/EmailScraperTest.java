@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 public class EmailScraperTest {
     @Test public void testAppHasAGreeting() {
-        EmailScraper classUnderTest = new EmailScraper();
+        EmailScraper classUnderTest = new EmailScraper("abc.com");
         assertNotNull("app should have a greeting", classUnderTest.getHelp());
     }
 }

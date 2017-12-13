@@ -13,6 +13,18 @@ It is used for scaping the email addresses from an input domain name.
 * gradle: https://gradle.org/install/
 * jsoup (maven dependency): https://jsoup.org/
 
+## Build
+
+On Windows
+```
+gradlew.bat fatJar
+```
+
+On Linux
+```
+gradlew fatJar
+```
+
 ## Usage
 
 The email scraper reads a domain name from command line input and scrapes email addresses from that domain only.

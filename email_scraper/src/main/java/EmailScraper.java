@@ -20,8 +20,7 @@ public class EmailScraper {
     private Queue<String> queue;
     private HashSet<String> emails;
     private String domain;
-
-    private static int link_count = 0;
+    private int link_count;
 
     // TODO: factor out NUMBER_OF_LINKS as a cli option with default value
     private final static int NUMBER_OF_LINKS = 100;
@@ -31,6 +30,7 @@ public class EmailScraper {
         queue = new LinkedList<>();
         emails = new HashSet<>();
         domain = url.substring(7); // strip off "http://"
+        link_count = 0;
 //        System.out.println("domain = " + domain);
     }
 
@@ -108,8 +108,9 @@ public class EmailScraper {
             if (email_str.endsWith(".")) {
                 email_str = email_str.substring(0, email_str.length() - 1);
             }
-            emails.add(email_str);
-//            System.out.println(email_str);
+            if (emails.add(email_str)) {
+                System.out.println(email_str);
+            }
         }
     }
 
@@ -134,6 +135,6 @@ public class EmailScraper {
         // scrape emails by web crawler agent
         EmailScraper es = new EmailScraper(url);
         es.getPageLinks();
-        es.printEmails();
+//        es.printEmails();
     }
 }
